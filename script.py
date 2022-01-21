@@ -46,6 +46,8 @@ def test_4():
     canvas = Canvas.new_canvas()
 
     canvas.add_background('black')
+    canvas.add_figure(f.Circle(0, 0, 84, 'white'))
+    canvas.add_figure(f.Circle(0, 0, 60, 'black'))
     canvas.add_figure(f.Circle(0, 0, 40, 'white'))
     canvas.add_figure(g.Rotation(x=0, y=0, figure=f.Circle(27, 0, 10, 'blue'), angle=15, offset=0))
     canvas.add_figure(g.Rotation(x=0, y=0, figure=f.Line(22, 32, 32, 22, 'red', 2), angle=30, offset=15))
@@ -57,5 +59,35 @@ def test_4():
     canvas.save('result.svg')
 
 
+def test_5():
+    canvas = Canvas.new_canvas()
+
+    canvas.add_background('white')
+    canvas.add_figure(f.Custom(
+        x=-30,
+        y=-30,
+        points=[
+            (5, 35),
+            (30, 20),
+            (55, 35),
+            (30, 65),
+        ],
+        color='black'
+    ))
+    canvas.add_figure(f.Custom(
+        x=-30,
+        y=-30,
+        points=[
+            (15, 0),
+            (45, 0),
+            (50, 25),
+            (30, 15),
+            (10, 25),
+        ],
+        color='black'
+    ))
+    canvas.save('result.svg')
+
+
 if __name__ == '__main__':
-    test_4()
+    test_5()

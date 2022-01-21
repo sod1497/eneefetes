@@ -4,8 +4,6 @@ from figures.base import BaseFigure
 
 class Rectangle(BaseFigure):
 
-    # TODO: Add rotation
-
     def __init__(self, x: int, y: int, color: str, width: int, height: int, angle: int = 0):
         super().__init__()
 
@@ -19,7 +17,7 @@ class Rectangle(BaseFigure):
     def draw(self, t: SvgTurtle):
 
         t.color(self.color)
-        t.fillcolor(self.color)
+        t.fillcolor(self.color)  # TODO: fix
         t.begin_fill()
 
         t.setheading(to_angle=self.angle)
