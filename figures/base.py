@@ -1,3 +1,4 @@
+import math
 from abc import ABC, abstractmethod
 
 from svg_turtle import SvgTurtle
@@ -19,10 +20,11 @@ class BaseFigure(ABC):
         c = t.clone()
 
         c.penup()
-        c.goto(self.x, self.y)
+        c.goto(c.xcor() + self.x, c.ycor() + self.y)
         c.pendown()
 
         self.draw(c)
 
     def __copy__(self):
         return self.__class__()
+

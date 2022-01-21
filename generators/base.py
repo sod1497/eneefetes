@@ -17,7 +17,7 @@ class BaseGenerator(ABC):
         c = t.clone()
 
         c.penup()
-        c.goto(self.x, self.y)
+        c.goto(c.xcor() + self.x, c.ycor() + self.y)
         c.pendown()
 
         self.draw(c)

@@ -6,7 +6,7 @@ class Rectangle(BaseFigure):
 
     # TODO: Add rotation
 
-    def __init__(self, x: int, y: int, color: str, width: int, height: int):
+    def __init__(self, x: int, y: int, color: str, width: int, height: int, angle: int = 0):
         super().__init__()
 
         self.x = x
@@ -14,12 +14,15 @@ class Rectangle(BaseFigure):
         self.color = color
         self.width = width
         self.height = height
+        self.angle = angle
 
     def draw(self, t: SvgTurtle):
 
         t.color(self.color)
         t.fillcolor(self.color)
         t.begin_fill()
+
+        t.setheading(to_angle=self.angle)
 
         for i, side in enumerate(range(4)):
             if i % 2 == 0:
