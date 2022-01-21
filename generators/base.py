@@ -3,13 +3,11 @@ from abc import ABC, abstractmethod
 from svg_turtle import SvgTurtle
 
 
-class BaseFigure(ABC):
+class BaseGenerator(ABC):
 
     def __init__(self):
-        self.color = 'black'
         self.x = 0
         self.y = 0
-        self.angle = 0
 
     @abstractmethod
     def draw(self, t: SvgTurtle):
@@ -23,6 +21,3 @@ class BaseFigure(ABC):
         c.pendown()
 
         self.draw(c)
-
-    def __copy__(self):
-        return self.__class__()
