@@ -2,6 +2,10 @@ from generators.rotation import ONE_TURN
 from paintor.canvas import Canvas
 import figures as f
 import generators as g
+from pathlib import Path
+from pixelator import Pixelator
+
+BASE_PATH = Path(__file__).resolve().parent
 
 
 def test_1():
@@ -86,8 +90,9 @@ def test_5():
         ],
         color='black'
     ))
-    canvas.save('result.svg')
+    canvas.save('./output/result.svg')
 
 
 if __name__ == '__main__':
     test_5()
+    Pixelator.pixelate_svg(BASE_PATH.joinpath('output', 'result.svg'))
